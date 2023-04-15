@@ -37,6 +37,7 @@ function ValidURL(str) {
   const render_map = () => {
     var domain = document.getElementById("domain").value;
     domain = addHttp(domain);
+    
     if (!ValidURL(domain)) {
       throw new Error();
     } else {
