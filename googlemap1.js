@@ -37,7 +37,7 @@ function ValidURL(str) {
   const render_map = () => {
     var domain = document.getElementById("domain").value;
     domain = addHttp(domain);
-    
+
     if (!ValidURL(domain)) {
       throw new Error();
     } else {
@@ -81,4 +81,6 @@ function ValidURL(str) {
         lng: servers[0].lamb.lat + 25,
       },
       zoom: 2,
-   
+    });
+    
+
