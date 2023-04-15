@@ -21,7 +21,7 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync . s3://YOUR_BUCKET_NAME --exclude "node_modules/*" --exclude ".git/*" --delete
+          aws s3 sync . s3://www.serverlatency.com --exclude "node_modules/*" --exclude ".git/*" --delete
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
