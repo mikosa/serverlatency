@@ -4,13 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>Server Latency and IP Location Website Speed </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
-        crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+        integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"
+        integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
         crossorigin="anonymous"></script>
 
     <title>Simple Map</title>
@@ -33,15 +36,15 @@
             padding: 0;
         }
     </style>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127393281-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127393281-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-	  gtag('config', 'UA-127393281-1');
-	</script>
+        gtag('config', 'UA-127393281-1');
+    </script>
 
 </head>
 
@@ -52,19 +55,20 @@
             <a>Using HTTP/S Requests</a>
             <!-- <p class="lead">Findout where a website is served from</p> -->
             <div class="input-group mb-4">
-                <input type="url" class="form-control" placeholder="Ex: https://www.serverlatency.com" aria-label="Website URL" aria-describedby="button-addon2"
-                    id="domain">
+                <input type="url" class="form-control" placeholder="Ex: https://www.serverlatency.com"
+                    aria-label="Website URL" aria-describedby="button-addon2" id="domain">
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="button-addon2" onclick="render_map()">Lookup Server Locations</button>
+                    <button class="btn btn-primary" type="button" id="button-addon2" onclick="render_map()">Lookup
+                        Server Locations</button>
                 </div>
             </div>
-            <div class="alert alert-info alert-dismissible show" role="alert">
+            <!-- <div class="alert alert-info alert-dismissible show" role="alert">
                 <div class="row">
                     <div class="col-md-8 ">
                         I built this service to help me learn and take data driven decisions
-                        
-                        <br/> More requested options coming soon.
-                        <br/> Thank you for all the people that already donated.
+
+                        <br /> More requested options coming soon.
+                        <br /> Thank you for all the people that already donated.
                     </div>
                     <div class="col-md-2 ml-auto ">
                         <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">
@@ -73,7 +77,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <!-- Button trigger modal -->
+         
 
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -83,13 +87,15 @@
                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                 <input type="hidden" name="cmd" value="_s-xclick">
                                 <input type="hidden" name="hosted_button_id" value="SLDCU2F9VSE54">
-                                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"
+                                    border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+                                    width="1" height="1">
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class='Row'>
                 <div class="alert alert-warning alert-dismissible show" style="display:none" id="blokk" role="alert1">
@@ -116,16 +122,17 @@
                     </button>
 
                 </div>
-                <div class="modal-body" >
+                <div class="modal-body">
                     <div class="form-group">
                         <div>Send me a message
-                        </div>                      
+                        </div>
                         <!-- <label for="form_message">Contact Me</label> -->
-                        <textarea id="form_message" name="message" class="form-control" placeholder="Dont forget your name and email/phone# "
-                            rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                        <textarea id="form_message" name="message" class="form-control"
+                            placeholder="Dont forget your name and email/phone# " rows="4" required="required"
+                            data-error="Please, leave us a message."></textarea>
                         <div class="help-block with-errors"></div>
-                    </div>                   
-                     <div id="response">
+                    </div>
+                    <div id="response">
 
                     </div>
                 </div>
@@ -137,23 +144,25 @@
         </div>
     </div>
     <script>
-      $("#domain").keyup(function(event) {
-        if (event.keyCode === 13) {
-            render_map();
-        }
+        $("#domain").keyup(function (event) {
+            if (event.keyCode === 13) {
+                render_map();
+            }
         });
 
         $('#myModal').on('hidden.bs.modal', function () {
-            
+
             $("#form_message").val("");
             $("#response").html("");
-})
+        })
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8LykWBK3Szo9MB9xpomRaom73FDr0K4M&libraries=visualization"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8LykWBK3Szo9MB9xpomRaom73FDr0K4M&libraries=visualization"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="googlemap.js"></script>
+    <script type="text/javascript" src="googlemap1.js"></script>
 </body>
 
 </html>
