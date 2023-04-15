@@ -82,4 +82,78 @@ function ValidURL(str) {
       },
       zoom: 2,
     });
+    servers.forEach(function (server) {
+        var latLng = new google.maps.LatLng(server.lamb.long, server.lamb.lat);
+        var marker = new google.maps.Marker({
+            position: latLng,
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                strokeColor: "red",
+                scale: 3
+            },
+            title: Math.round(server.time.tfb).toString() + 'ms',
+            map: map
+        });
+        var latLng2 = new google.maps.LatLng( server.serv.lat,server.serv.long);
+        var marker2 = new google.maps.Marker({
+            position: latLng2,
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                strokeColor: "yellow",
+                scale: 3
+            },
+            title: server.serverIp ,
+            map: map
+        });
+        var html = '<style>h2, p {margin: 0; }</style><p>IP: '+ server.myip +'</p><p >Wait: '+ Math.round(server.time.wait)  +'ms</p><p>DNS: '+ Math.round(server.time.dns)  +'ms</p><p>TCP: '+ Math.round(server.time.tcp)  +'ms</p><p>TTFB: '+ Math.round(server.time.tfb)  +'ms</p><p>Download: '+ Math.round(server.time.download) +'ms</p><p>Total: '+ Math.round(server.time.total) +'ms</p><p>org: '+server.org  +'</p>';
+        
+        var infowindow = new google.maps.InfoWindow({
+
+          //  content: JSON.stringify(server.time)
+            content: html
+             });
+            marker.addListener('click', function () {
+            infowindow.open(map, marker);
+        });
+       
+        // console.log ('lambda: ', server.lamb);
+//         console.log('lllllll: ');
+
+        const Circle = new google.maps.Circle({
+            strokeColor: "#FF0000",
+            strokeOpacity: 0.2,
+            strokeWeight: 1,
+            fillColor: "#FF0000",
+            fillOpacity: 0.05,
+            map,
+            center: {
+                lat: server.lamb.long, 
+                lng: server.lamb.lat},
+            radius: server.time.tfb * 10000,
+        });
+        
+        var line = new google.maps.Polyline({
+            path: [{
+                lat: server.lamb.long,
+                lng: server.lamb.lat
+            }, {
+                lat: server.serv.lat,
+                lng: server.serv.long
+            }],
+            strokeOpacity: 1,
+            strokeColor: server.strokeColor,
+            strokeWeight: 2,
+            map: map
+        });
+
+        // var heatMapData = [
+        //     {location: new google.maps.LatLng(server.lamb.long, server.lamb.lat), weight: 100},
+        //     {location: new google.maps.LatLng(server.lamb.long+1, server.lamb.lat), weight: 100}
+        //   ];
+        //   var heatmap = new google.maps.visualization.HeatmapLayer({
+        //     data: heatMapData
+        //   });
+        //   heatmap.setMap(map);
+
+    })
 }
