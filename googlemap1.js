@@ -27,8 +27,16 @@ function ValidURL(str) {
     });
   };
   
+  function addHttp(domain) {
+    if (!domain.startsWith('http://') && !domain.startsWith('https://')) {
+        domain = 'https://' + domain;
+    }
+    return domain;
+}
+
   const render_map = () => {
-    const domain = document.getElementById("domain").value;
+    var domain = document.getElementById("domain").value;
+    domain = addHttp(domain);
     if (!ValidURL(domain)) {
       throw new Error();
     } else {
