@@ -21,7 +21,7 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy files to S3
-        uses: aws-actions/amazon-s3-deploy@v2
+        uses: aws-actions/amazon-s3-deploy@v3
         with:
           args: --exclude ".git/*" --delete
         env:
