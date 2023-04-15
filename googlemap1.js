@@ -82,5 +82,4 @@ function ValidURL(str) {
       },
       zoom: 2,
     });
-    
-
+}
