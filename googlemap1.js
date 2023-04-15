@@ -34,13 +34,36 @@ function ValidURL(str) {
     return domain;
 }
 
-  const render_map = () => {
+async function checkRedirectURL(url) {
+    try {
+        const response = await fetch(url, {
+            method: 'HEAD', // Use the HEAD method to minimize the data transferred
+            redirect: 'manual', // Do not follow redirects automatically
+        });
+
+        if (response.status === 301 || response.status === 308) {
+            // The URL is a permanent redirect (301 Moved Permanently or 308 Permanent Redirect)
+            const newURL = response.headers.get('location');
+            if (newURL) {
+                console.log(`URL redirected from ${url} to ${newURL}`);
+                return newURL;
+            }
+        }
+    } catch (error) {
+        console.error(`Error checking for redirect: ${error}`);
+    }
+    return url; // Return the original URL if no redirect is detected or there was an error
+}
+
+  const render_map = async () => {
     var domain = document.getElementById("domain").value;
     domain = addHttp(domain);
 
     if (!ValidURL(domain)) {
       throw new Error();
     } else {
+        // Check if the URL is a permanent redirect and replace it with the new URL if needed
+        domain = await checkRedirectURL(domain);
       if (domain.includes("https")) {
         domain = domain.replace("https://", "1");
       }
